@@ -1,5 +1,5 @@
 # RecipesDemo
-Demo app for testing RestApi query
+Demo app for testing RestApi Calls.
 <table>
   <tr>
     <th>
