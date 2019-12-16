@@ -32,6 +32,7 @@ A food recipe search app with retrofit, livedata and using android best practice
   <br>
 <h1>App architecture</h1>
   <p>The app was developed taking in account the best practices and recommended architecture from Google for building apps.</p>
+  <p>It uses the repository pattern and the single source of truth. Each component depends only on the component one level below it. For example, activities depend only on a view model. The repository is the only class that depends on multiple other classes.</p>
   <div class="center" align="center">
     <img class="center" src="https://developer.android.com/topic/libraries/architecture/images/final-architecture.png" height="400">
   </div>
