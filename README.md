@@ -4,7 +4,8 @@ A food recipe search app with retrofit, livedata and using android best practice
 <p>The app is currently not being developed.</p>
 <p>The UI was developed as far as enough for displaying the results.</p>
 <br>
-<h1>Screenshots</h1> 
+
+# Screenshots
 
 ![Category Selection](screens/screen1.png "Category Selection")
 ![List of recipes1](screens/screen2.png "List of searched recipes 1")
@@ -15,7 +16,8 @@ A food recipe search app with retrofit, livedata and using android best practice
 ![List of recipes3](screens/screen6.png "List of searched recipes 3")
   <br>
   <br>
-<h1>Libraries Used</h1>
+  
+# Libraries Used
   <p><b>Lifecycles</b>- Create a UI that automatically responds to lifecycle events.</p>
   <p><b>LiveData</b> - Build data objects that notify views when the underlying database changes.</p>
   <p><b>Room</b> - Caching the network data for offline use.</p> 
@@ -26,14 +28,20 @@ A food recipe search app with retrofit, livedata and using android best practice
   <p><b>Circle Imageview</b> - Display images in a circle.</p>
   <p><b>RecyclerView </b> - Display list and handle clicks.</p>
   <br>
-<h1>Non-Goals</h1>
+  
+# Non-Goals
   <p>The focus of this project was on HTTP requests and caching the data for offline use using the MVVM pattern.</p>
   <p>The UI only was worked till the point were we could get and display the results from the requests.</p>
   <br>
-<h1>App architecture</h1>
+  
+# App architecture
   <p>The app was developed taking in account the best practices and recommended architecture from Google for building apps.</p>
   <p>It uses the repository pattern and the single source of truth. Each component depends only on the component one level below it. For example, activities depend only on a view model. The repository is the only class that depends on multiple other classes.</p>
   <div class="center" align="center">
     <img class="center" src="https://developer.android.com/topic/libraries/architecture/images/final-architecture.png" height="400">
   </div>
+  
+### Disclamer
+###### Althoug the code was written by me, the current app was developed as part of a course on android architecture.</p>
+
 
