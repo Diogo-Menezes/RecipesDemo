@@ -40,7 +40,12 @@ A food recipe search app with retrofit, livedata and using android best practice
   <div class="center" align="center">
     <img class="center" src="https://developer.android.com/topic/libraries/architecture/images/final-architecture.png" height="400">
   </div>
-  
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+
 ### Disclamer
 ###### Althoug the code was written by me, the current app was developed as part of a course on android architecture.</p>
 
