@@ -3,7 +3,8 @@
 A food recipe search app with retrofit, livedata and using android best practices.</p>
 <p>The app is currently not being developed.</p>
 <p>The UI was developed as far as enough for displaying the results.</p>
-<h1>Screenshots</h1>
+<br>
+<h1>Screenshots</h1> 
 
 ![Category Selection](screens/screen1.png "Category Selection")
 ![List of recipes1](screens/screen2.png "List of searched recipes 1")
