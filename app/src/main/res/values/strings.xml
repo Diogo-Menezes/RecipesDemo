@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Food Recipes Demo</string>
+
+    <string name="food2forkApiKey">dadc63aaf398163b40fea9b5e79</string>
+</resources>
