@@ -32,4 +32,8 @@ The focus of this project was on HTTP requests and caching the data for offline 
 <h1>App architecture</h1>
 <br>
 <p>The app was developed taking in account the best practices and recommended architecture from Google for building apps.</p>
-<img src="https://developer.android.com/topic/libraries/architecture/images/final-architecture.png" height="400">
+
+<div class="text-center">
+<img class="text-center" src="https://developer.android.com/topic/libraries/architecture/images/final-architecture.png" height="400">
+</div>
+
