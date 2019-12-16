@@ -27,4 +27,4 @@ A food recipe search app with retrofit, livedata and using android best practice
   
 <h1>Non-Goals</h1>
 The focus of this project was on HTTP requests and caching the data for offline use using the MVVM pattern.
-The UI only was worked till the point were we can get and display the results less design time was spent.
+<p>The UI only was worked till the point were we can get and display the results less design time was spent.</p>
