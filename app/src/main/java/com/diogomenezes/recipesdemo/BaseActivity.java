@@ -17,8 +17,6 @@ public abstract class BaseActivity extends AppCompatActivity {
         FrameLayout frameLayout = constraintLayout.findViewById(R.id.activity_content);
         mProgressBar = constraintLayout.findViewById(R.id.progress_bar);
         getLayoutInflater().inflate(layoutResID, frameLayout, true);
-
-
         super.setContentView(layoutResID);
     }
 
