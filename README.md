@@ -46,7 +46,7 @@ A food recipe search app with retrofit, livedata and using android best practice
   <br>
   <br>
 
-### Disclamer
-###### Althoug the code was written by me, the current app was developed as part of a course on android architecture.</p>
+### Disclaimer
+###### Although the code was written by me, the current app was developed as part of a course on android architecture.</p>
 
 
