@@ -15,7 +15,7 @@ A food recipe search app with retrofit, livedata and using android best practice
 ![Recipe details cached](screens/screen4.png "Recipe details")
 ![Recipe details no internet](screens/screen6.png "Recipe details of no cached recipe")
 <br></br>
-# Dark Mode
+# Screenshots - Dark Mode
 
 ![List of recipes3](screens/screen8.png "Recipe List dark mode")
 ![Recipe details](screens/screen7.png "Recipe details dark mode")
