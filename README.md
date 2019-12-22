@@ -11,8 +11,8 @@ A food recipe search app with retrofit, livedata and using android best practice
 ![Search](screens/screen2.png "Search function")
 ![List of recipes1](screens/screen3.png "List of searched recipes")
 <br></br>
-![List of recipes2](screens/screen4.png "List of searched recipes loading")
-![Recipe details cached](screens/screen5.png "Recipe details")
+![List of recipes2](screens/screen5.png "List of searched recipes loading")
+![Recipe details cached](screens/screen4.png "Recipe details")
 ![Recipe details no internet](screens/screen6.png "Recipe details of no cached recipe")
   <br>
   <br>
