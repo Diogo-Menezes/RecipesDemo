@@ -64,9 +64,10 @@ dependencies {
     implementation "com.github.bumptech.glide:glide:$glide_version"
     annotationProcessor "com.github.bumptech.glide:compiler:$glide_version"
 
-    implementation ("com.github.bumptech.glide:recyclerview-integration:$glide_version") {
+    implementation("com.github.bumptech.glide:recyclerview-integration:$glide_version") {
         // Excludes the support library because it's already included by Glide.
-        transitive = false}
+        transitive = false
+    }
 
 
     //Circular ImageView
@@ -75,4 +76,7 @@ dependencies {
     // Room
     implementation "android.arch.persistence.room:runtime:$lifecycle_version"
     annotationProcessor "android.arch.persistence.room:compiler:$lifecycle_version"
+
+    //Material Design
+    implementation 'com.google.android.material:material:1.1.0-alpha04'
 }

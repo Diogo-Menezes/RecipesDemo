@@ -152,7 +152,6 @@ public class RecipeListActivity extends BaseActivity implements OnRecipeListener
     private void searchRecipesApi(String query) {
         mRecyclerView.smoothScrollToPosition(0);
         mRecipeListViewModel.searchRecipesApi(query, 1);
-        mSearchView.clearFocus();
     }
 
     private void initRecyclerView() {
