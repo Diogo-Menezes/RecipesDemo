@@ -26,4 +26,5 @@
         <activity android:name=".RecipeActivity" />
     </application>
 
+
 </manifest>

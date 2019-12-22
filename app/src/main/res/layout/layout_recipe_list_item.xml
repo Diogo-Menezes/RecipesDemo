@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:paddingBottom="16dp"
     android:background="@color/lightGray">
@@ -37,8 +38,9 @@
                     android:id="@+id/recipe_title"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="#000"
-                    android:textSize="@dimen/recipe_title_text_size" />
+                    android:textColor="@android:color/black"
+                    android:textSize="@dimen/recipe_title_text_size"
+                    tools:text="Title"/>
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -52,7 +54,8 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="90"
                         android:gravity="start"
-                        android:textSize="@dimen/recipe_publisher_text_size" />
+                        android:textSize="@dimen/recipe_publisher_text_size"
+                        tools:text="Publisher"/>
 
                     <TextView
                         android:id="@+id/recipe_social_score"
@@ -61,7 +64,8 @@
                         android:layout_weight="10"
                         android:gravity="center"
                         android:textColor="@color/red"
-                        android:textSize="@dimen/recipe_publisher_text_size" />
+                        android:textSize="@dimen/recipe_publisher_text_size"
+                        tools:text="100"/>
 
 
                 </LinearLayout>

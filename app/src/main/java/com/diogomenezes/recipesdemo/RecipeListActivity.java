@@ -5,6 +5,10 @@ import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
+import android.view.View;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -57,10 +61,8 @@ public class RecipeListActivity extends BaseActivity implements OnRecipeListener
 
     private void init() {
         mRecyclerView = findViewById(R.id.recipe_list);
-        mSearchView = findViewById(R.id.search_view);
         mRecipeListViewModel = ViewModelProviders.of(this).get(RecipeListViewModel.class);
         initRecyclerView();
-        initSearchView();
         subscribeObservers();
         setSupportActionBar((Toolbar) findViewById(R.id.toolbar));
     }
@@ -182,7 +184,10 @@ public class RecipeListActivity extends BaseActivity implements OnRecipeListener
         mRecyclerView.setAdapter(mAdapter);
     }
 
-    private void initSearchView() {
+    private void initSearchView(SearchView searchView) {
+        mSearchView = searchView;
+        mSearchView.setIconifiedByDefault(true);
+        mSearchView.setQueryHint(getString(R.string.search_hint));
         mSearchView.setSubmitButtonEnabled(true);
         mSearchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
@@ -195,6 +200,14 @@ public class RecipeListActivity extends BaseActivity implements OnRecipeListener
             @Override
             public boolean onQueryTextChange(String s) {
                 return false;
+            }
+        });
+
+        mSearchView.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                Log.i(TAG, "onFocusChange: called");
+                mSearchView.setIconified(true);
             }
         });
     }
@@ -210,29 +223,34 @@ public class RecipeListActivity extends BaseActivity implements OnRecipeListener
     public void onCategoryClick(String category) {
         query = category;
         searchRecipesApi(category);
-        clearSearch();
     }
 
     private void displaySearchCategories() {
         mAdapter.displaySearchCategories();
     }
 
-    private void clearSearch() {
-        mSearchView.setQuery("", false);
-    }
-
 
     @Override
     public void onBackPressed() {
+        Log.i(TAG, "onBackPressed: called");
         if (mRecipeListViewModel.getViewstate().getValue() == RecipeListViewModel.ViewState.CATEGORIES) {
             super.onBackPressed();
         } else {
-            clearSearch();
             mRecipeListViewModel.cancelSearchRequest();
             mRecipeListViewModel.setViewCategories();
         }
         query = "";
     }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater menuInflater = getMenuInflater();
+        menuInflater.inflate(R.menu.search_menu, menu);
+        SearchView searchView = (SearchView) menu.findItem(R.id.search).getActionView();
+        initSearchView(searchView);
+        return true;
+    }
+
 
     @Override
     protected void onSaveInstanceState(Bundle outState) {
