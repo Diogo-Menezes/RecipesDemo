@@ -18,16 +18,16 @@
             android:id="@+id/category_image"
             android:layout_width="@dimen/circular_image_category"
             android:layout_height="@dimen/circular_image_category"
-            android:src="@drawable/ic_launcher_background" />
+            tools:src="@drawable/vegan" />
 
         <TextView
             android:id="@+id/category_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:textColor="@android:color/black"
+            android:textColor="?colorOnSurface"
             android:textSize="@dimen/recipe_title_text_size"
-            tools:text="Barbeque" />
+            tools:text="Vegan" />
 
     </LinearLayout>
 

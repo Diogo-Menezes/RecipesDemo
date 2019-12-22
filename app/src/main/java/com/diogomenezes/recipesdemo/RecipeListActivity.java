@@ -7,12 +7,12 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatDelegate;
 import androidx.appcompat.widget.SearchView;
 import androidx.appcompat.widget.Toolbar;
 import androidx.lifecycle.Observer;
@@ -54,9 +54,11 @@ public class RecipeListActivity extends BaseActivity implements OnRecipeListener
         init();
         if (savedInstanceState != null) {
             query = savedInstanceState.getString("query");
-            onCategoryClick(query);
+            if (!query.equals("")) {
+                onCategoryClick(query);
+            }
         }
-
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
     }
 
     private void init() {
@@ -120,17 +122,29 @@ public class RecipeListActivity extends BaseActivity implements OnRecipeListener
                 if (viewState != null) {
                     switch (viewState) {
                         case RECIPES: {
+                            updateTitle();
                             // recipes will show automatically from other observer
                             break;
                         }
                         case CATEGORIES: {
                             displaySearchCategories();
+                            updateTitle();
                             break;
                         }
                     }
                 }
             }
         });
+    }
+
+    private void updateTitle() {
+        String title = getString(R.string.app_name);
+        if (getSupportActionBar() != null) {
+            if (!query.equals("")) {
+                title = query;
+            }
+            getSupportActionBar().setTitle(title);
+        }
     }
 
     public boolean isInternetAvailable() {
@@ -161,7 +175,7 @@ public class RecipeListActivity extends BaseActivity implements OnRecipeListener
         mRecyclerView.addItemDecoration(itemDecorator);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        RecyclerViewPreloader<String> preloader = new RecyclerViewPreloader<String>(
+        RecyclerViewPreloader<String> preloader = new RecyclerViewPreloader<>(
                 Glide.with(this),
                 mAdapter,
                 viewPreloader,
@@ -239,6 +253,7 @@ public class RecipeListActivity extends BaseActivity implements OnRecipeListener
             mRecipeListViewModel.setViewCategories();
         }
         query = "";
+        updateTitle();
     }
 
     @Override

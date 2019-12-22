@@ -1,9 +1,12 @@
 <resources>
     <string name="app_name">Food Recipes Demo</string>
     <string name="search">search</string>
-    <string name="search_hint">Broccoli...</string>
+    <string name="search_hint">Broccoli&#8230;</string>
     <string name="categories">Categories</string>
     <string name="score">Score</string>
     <string name="recipe_image">Recipe Image</string>
     <string name="ingredients">Ingredients</string>
+    <string name="social_score">Social Score</string>
+    <string name="publisher">Publisher: %s</string>
+    <string name="ingredients_bullet">- %s</string>
 </resources>

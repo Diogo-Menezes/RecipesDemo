@@ -15,7 +15,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/secondaryLightColor"
+
         android:orientation="vertical"
         android:paddingBottom="8dp">
 
@@ -40,7 +40,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:ellipsize="end"
-                android:textColor="@android:color/black"
+                android:textColor="?colorOnSurface"
                 android:textSize="@dimen/recipe_title_text_size"
                 android:layout_weight="100"
                 tools:text="Title" />
@@ -77,7 +77,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="10"
                 android:gravity="center"
-                android:textColor="@color/red"
+                android:textColor="?colorOnSurface"
                 android:textSize="@dimen/recipe_publisher_text_size"
                 tools:text="100" />
 

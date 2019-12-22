@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/parent"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:visibility="gone"
+    tools:visibility="visible">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+
+        <TextView
+            android:id="@+id/recipe_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            android:textSize="@dimen/recipe_title_text_size"
+            app:layout_constraintEnd_toEndOf="@+id/recipe_publisher"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/recipe_image"
+            tools:text="Recipe Title" />
+
+        <TextView
+            android:id="@+id/recipe_publisher"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            android:textSize="@dimen/recipe_publisher_text_size"
+            android:textStyle="italic"
+            app:layout_constraintEnd_toStartOf="@+id/social_score_layout"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/recipe_title"
+            tools:text="Recipe Publisher" />
+
+        <TextView
+            android:id="@+id/ingredients_label"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            android:text="@string/ingredients"
+            android:textSize="@dimen/recipe_publisher_text_size"
+            app:layout_constraintEnd_toEndOf="@+id/recipe_publisher"
+            app:layout_constraintStart_toStartOf="@+id/recipe_publisher"
+            app:layout_constraintTop_toBottomOf="@+id/recipe_publisher" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/recipe_image"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/recipe_image_height"
+            android:scaleType="centerCrop"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:src="@drawable/vegan" />
+
+
+        <LinearLayout
+            android:id="@+id/ingredients_container"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
+            android:orientation="vertical"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:paddingBottom="50dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/ingredients_label"
+            app:layout_constraintTop_toBottomOf="@id/ingredients_label" />
+
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/social_score_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="2dp"
+            app:cardBackgroundColor="@color/secondaryLightColor"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="2dp"
+            app:layout_constraintBottom_toBottomOf="@+id/recipe_publisher"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/recipe_title">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_horizontal|center_vertical"
+                android:padding="8dp">
+
+
+                <TextView
+                    android:id="@+id/recipe_score_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/social_score"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/recipe_social_score"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/recipe_score_label"
+                    android:layout_centerInParent="true"
+                    android:layout_marginTop="8dp"
+                    android:textStyle="bold"
+                    tools:text="100" />
+            </RelativeLayout>
+        </androidx.cardview.widget.CardView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>
+
+

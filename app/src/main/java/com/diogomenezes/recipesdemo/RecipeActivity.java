@@ -26,7 +26,7 @@ public class RecipeActivity extends BaseActivity {
 
     // UI components
     private AppCompatImageView mRecipeImage;
-    private TextView mRecipeTitle, mRecipeRank;
+    private TextView mRecipeTitle, mRecipePublisher, mRecipeRank;
     private LinearLayout mRecipeIngredientsContainer;
     private ScrollView mScrollView;
 
@@ -37,9 +37,10 @@ public class RecipeActivity extends BaseActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_recipe);
+        setContentView(R.layout.activity_recipe_refactor);
         mRecipeImage = findViewById(R.id.recipe_image);
         mRecipeTitle = findViewById(R.id.recipe_title);
+        mRecipePublisher = findViewById(R.id.recipe_publisher);
         mRecipeRank = findViewById(R.id.recipe_social_score);
         mRecipeIngredientsContainer = findViewById(R.id.ingredients_container);
         mScrollView = findViewById(R.id.parent);
@@ -49,8 +50,8 @@ public class RecipeActivity extends BaseActivity {
         if (getSupportActionBar() != null) {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         }
-
         getIncomingIntent();
+
     }
 
     private void getIncomingIntent() {
@@ -58,6 +59,7 @@ public class RecipeActivity extends BaseActivity {
             Recipe recipe = getIntent().getParcelableExtra("recipe");
             Log.d(TAG, "getIncomingIntent: " + recipe.getTitle());
             subscribeObservers(recipe.getRecipe_id());
+            setTitle(recipe.getTitle());
         }
     }
 
@@ -110,6 +112,7 @@ public class RecipeActivity extends BaseActivity {
                     .into(mRecipeImage);
 
             mRecipeTitle.setText(recipe.getTitle());
+            mRecipePublisher.setText(getString(R.string.publisher,recipe.getPublisher()));
             mRecipeRank.setText(String.valueOf(Math.round(recipe.getSocial_rank())));
 
             setIngredients(recipe);
@@ -122,8 +125,8 @@ public class RecipeActivity extends BaseActivity {
         if (recipe.getIngredients() != null) {
             for (String ingredient : recipe.getIngredients()) {
                 TextView textView = new TextView(this);
-                textView.setText(ingredient);
-                textView.setTextSize(15);
+                textView.setText(getString(R.string.ingredients_bullet, ingredient));
+                textView.setTextSize(16);
                 textView.setLayoutParams(
                         new LinearLayout.LayoutParams(
                                 ViewGroup.LayoutParams.WRAP_CONTENT,
