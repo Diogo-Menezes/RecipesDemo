@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
@@ -58,7 +59,7 @@ public class RecipeListActivity extends BaseActivity implements OnRecipeListener
                 onCategoryClick(query);
             }
         }
-        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+//        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
     }
 
     private void init() {
@@ -269,6 +270,27 @@ public class RecipeListActivity extends BaseActivity implements OnRecipeListener
         SearchView searchView = (SearchView) menu.findItem(R.id.search).getActionView();
         initSearchView(searchView);
         return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == R.id.action_mode) {
+            finish();
+            startActivity(new Intent(this, RecipeListActivity.class));
+            return nightMode();
+
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    private boolean nightMode() {
+        if (AppCompatDelegate.getDefaultNightMode() == AppCompatDelegate.MODE_NIGHT_YES) {
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+            return true;
+        } else {
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+            return true;
+        }
     }
 
     @Override
