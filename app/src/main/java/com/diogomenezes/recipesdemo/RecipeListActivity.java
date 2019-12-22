@@ -58,7 +58,7 @@ public class RecipeListActivity extends BaseActivity implements OnRecipeListener
                 onCategoryClick(query);
             }
         }
-        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
     }
 
     private void init() {
@@ -122,7 +122,6 @@ public class RecipeListActivity extends BaseActivity implements OnRecipeListener
                 if (viewState != null) {
                     switch (viewState) {
                         case RECIPES: {
-                            updateTitle();
                             // recipes will show automatically from other observer
                             break;
                         }
@@ -139,12 +138,16 @@ public class RecipeListActivity extends BaseActivity implements OnRecipeListener
 
     private void updateTitle() {
         String title = getString(R.string.app_name);
+        Boolean setHomeUp = false;
         if (getSupportActionBar() != null) {
             if (!query.equals("")) {
                 title = query;
+                setHomeUp = true;
             }
             getSupportActionBar().setTitle(title);
+            getSupportActionBar().setDisplayHomeAsUpEnabled(setHomeUp);
         }
+
     }
 
     public boolean isInternetAvailable() {
@@ -166,6 +169,9 @@ public class RecipeListActivity extends BaseActivity implements OnRecipeListener
     private void searchRecipesApi(String query) {
         mRecyclerView.smoothScrollToPosition(0);
         mRecipeListViewModel.searchRecipesApi(query, 1);
+        this.query = query;
+        updateTitle();
+        Log.i(TAG, "searchRecipesApi: " + query);
     }
 
     private void initRecyclerView() {
@@ -206,7 +212,6 @@ public class RecipeListActivity extends BaseActivity implements OnRecipeListener
             @Override
             public boolean onQueryTextSubmit(String s) {
                 searchRecipesApi(s);
-                query = s;
                 return false;
             }
 
@@ -251,8 +256,9 @@ public class RecipeListActivity extends BaseActivity implements OnRecipeListener
         } else {
             mRecipeListViewModel.cancelSearchRequest();
             mRecipeListViewModel.setViewCategories();
+            query = "";
         }
-        query = "";
+//        query = "";
         updateTitle();
     }
 
@@ -265,6 +271,11 @@ public class RecipeListActivity extends BaseActivity implements OnRecipeListener
         return true;
     }
 
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
+    }
 
     @Override
     protected void onSaveInstanceState(Bundle outState) {

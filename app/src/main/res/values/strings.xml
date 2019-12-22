@@ -5,8 +5,8 @@
     <string name="categories">Categories</string>
     <string name="score">Score</string>
     <string name="recipe_image">Recipe Image</string>
-    <string name="ingredients">Ingredients</string>
+    <string name="ingredients">Ingredient list</string>
     <string name="social_score">Social Score</string>
-    <string name="publisher">Publisher: %s</string>
+    <string name="publisher">Publisher</string>
     <string name="ingredients_bullet">- %s</string>
 </resources>

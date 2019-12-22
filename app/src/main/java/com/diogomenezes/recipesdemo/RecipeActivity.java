@@ -37,7 +37,7 @@ public class RecipeActivity extends BaseActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_recipe_refactor);
+        setContentView(R.layout.activity_recipe);
         mRecipeImage = findViewById(R.id.recipe_image);
         mRecipeTitle = findViewById(R.id.recipe_title);
         mRecipePublisher = findViewById(R.id.recipe_publisher);
@@ -112,7 +112,7 @@ public class RecipeActivity extends BaseActivity {
                     .into(mRecipeImage);
 
             mRecipeTitle.setText(recipe.getTitle());
-            mRecipePublisher.setText(getString(R.string.publisher,recipe.getPublisher()));
+            mRecipePublisher.setText(recipe.getPublisher());
             mRecipeRank.setText(String.valueOf(Math.round(recipe.getSocial_rank())));
 
             setIngredients(recipe);
